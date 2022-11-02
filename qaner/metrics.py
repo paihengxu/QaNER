@@ -34,6 +34,8 @@ def compute_metrics(
     confusion_matrix_pred_denominator = np.zeros(len(entity_mapper))
 
     for span_true, span_pred in zip(spans_true_batch, spans_pred_batch_top_1):
+        print(span_true)
+        print(span_pred)
         span_pred = span_pred[0]  # type: ignore
 
         i = entity_mapper[span_true.label]

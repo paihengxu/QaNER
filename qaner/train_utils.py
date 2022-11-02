@@ -55,6 +55,32 @@ def train(
         )
 
 
+def test(
+    model: AutoModelForQuestionAnswering,
+    test_dataloader: torch.utils.data.DataLoader,
+    writer: SummaryWriter,
+    device: torch.device,
+) -> None:
+    """
+    Testing loop.
+
+    Args:
+        n_epochs (int): number of epochs to train.
+        model (AutoModelForQuestionAnswering): model.
+        test_dataloader (torch.utils.data.DataLoader): test_dataloader.
+        writer (SummaryWriter): tensorboard writer.
+        device (torch.device): cpu or cuda.
+    """
+
+    evaluate_epoch(
+        model=model,
+        dataloader=test_dataloader,
+        writer=writer,
+        device=device,
+        epoch=1,
+    )
+
+
 def train_epoch(
     model: AutoModelForQuestionAnswering,
     dataloader: torch.utils.data.DataLoader,
